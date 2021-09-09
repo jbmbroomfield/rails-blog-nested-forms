@@ -23,6 +23,13 @@
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %><br>
   </div>
 
+  <%= f.fields_for :tags_attributes, Tag.new do |tag_fields| %>
+    <div class="field">
+      <%= tag_fields.label :name %><br>
+      <%= tag_fields.text_field :name %><br>
+    </div>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
